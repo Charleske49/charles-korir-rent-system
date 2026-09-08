@@ -1,106 +1,155 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CHARLES KORIR - Pro Vault Statement</title>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHARLES KORIR - Pro Vault</title>
 <style>
 *{box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
 body{margin:0;background:#f2f6fb}header{background:#1F4E79;color:#fff;padding:18px;text-align:center}
-.tabs{display:flex;background:#fff;overflow-x:auto;position:sticky;top:0;z-index:10}
-.tabs button{flex:1;min-width:65px;padding:13px 5px;border:none;background:#fff;font-weight:700;font-size:11px}
+.tabs{display:flex;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1);position:sticky;top:0;z-index:10;overflow-x:auto}
+.tabs button{flex:1;min-width:70px;padding:14px 6px;border:none;background:#fff;font-weight:700;font-size:11px;white-space:nowrap}
 .tabs button.active{color:#1F4E79;border-bottom:3px solid #1F4E79}
-.container{max-width:850px;margin:auto;padding:10px}
-.card{background:#fff;border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.container{max-width:750px;margin:auto;padding:10px}
+.card{background:#fff;border-radius:14px;padding:14px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
 h3{color:#1F4E79;margin:0 0 10px}input,select,textarea{width:100%;padding:11px;margin:5px 0;border:1px solid #ccc;border-radius:8px}
-.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.row>*{flex:1}
-.btn{border:none;padding:12px;border-radius:8px;font-weight:700;width:100%;cursor:pointer}
-.btn-blue{background:#1F4E79;color:#fff}.btn-small{padding:7px 10px;font-size:11px;width:auto}
-table{width:100%;border-collapse:collapse;font-size:12px}th{background:#1F4E79;color:#fff;padding:8px;text-align:left}td{padding:7px;border-bottom:1px solid #eee}
-.hidden{display:none}.stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 0}.stat{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:10px;text-align:center}.stat b{display:block;font-size:14px}
-.subtabs{display:flex;gap:6px;margin-bottom:10px}.subtabs button{padding:7px 12px;border-radius:20px;border:1px solid #1F4E79;background:#fff;color:#1F4E79;font-size:11px;font-weight:700}.subtabs button.active{background:#1F4E79;color:#fff}
-#statementModal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.6);z-index:100;display:none;overflow:auto;padding:15px}
-.statement-paper{max-width:500px;margin:20px auto;background:#fff;padding:20px;border-radius:12px}
-.st-head{text-align:center;border-bottom:2px solid #1F4E79;padding-bottom:10px;margin-bottom:15px}
-.st-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px dashed #ddd;font-size:13px}
-.st-total{display:flex;justify-content:space-between;padding:10px 0;font-weight:800;font-size:14px;border-top:2px solid #1F4E79;margin-top:10px}
-.st-badge{padding:4px 10px;border-radius:20px;font-size:11px;font-weight:800}
-.paid-badge{background:#dcfce7;color:#16a34a}.unpaid-badge{background:#fee2e2;color:#dc2626}
-</style>
-</head>
-<body>
-<header><h2 style="margin:0">CHARLES KORIR</h2><small>Pro Vault - Statement Version</small></header>
+.row{display:flex;gap:8px;flex-wrap:wrap}.row>*{flex:1;min-width:100px}
+.btn{border:none;padding:11px;border-radius:8px;font-weight:700;width:100%;cursor:pointer}.btn-blue{background:#1F4E79;color:#fff}.btn-small{padding:8px 12px;font-size:12px;width:auto;border-radius:6px;margin:2px;display:inline-block}
+table{width:100%;border-collapse:collapse;font-size:12px}th{background:#1F4E79;color:#fff;padding:8px;text-align:left}td{padding:8px;border-bottom:1px solid #eee;vertical-align:middle}
+.hidden{display:none}.stat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 0}.stat{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:10px;text-align:center}.stat b{display:block;font-size:14px;color:#1F4E79}.stat span{font-size:10px;color:#64748b}
+.subtabs{display:flex;gap:6px;margin-bottom:10px}.subtabs button{padding:7px 12px;border-radius:20px;border:1px solid #1F4E79;background:#fff;color:#1F4E79;font-weight:700;font-size:11px}.subtabs button.active{background:#1F4E79;color:#fff}
+.doc-actions{display:flex;flex-direction:row;gap:4px;flex-wrap:wrap}
+</style></head><body>
+<header><h2 style="margin:0">CHARLES KORIR</h2><small>Pro Vault - Docs Fixed</small></header>
 <div class="tabs">
-<button onclick="showTab('budget',this)">Budget</button>
+<button class="active" onclick="showTab('budget',this)">Budget</button>
 <button onclick="showTab('expenses',this)">Expenses</button>
 <button onclick="showTab('ktda',this)">KTDA</button>
-<button class="active" onclick="showTab('rent',this)">Rent</button>
+<button onclick="showTab('rent',this)">Rent</button>
 <button onclick="showTab('waterbill',this)">Waterbill</button>
 <button onclick="showTab('docs',this)">Docs</button>
 </div>
 <div class="container">
-<div id="rent"><div class="card"><h3>Rent Management</h3><div class="subtabs"><button class="active" id="r1" onclick="showR('entry')">Entry</button><button id="r2" onclick="showR('report')">Report</button></div>
-<div id="re">
-<div class="row"><input id="rm" type="month"><button class="btn btn-small" style="background:#dbeafe;color:#1F4E79;max-width:100px" onclick="pull()">↻ Load Bill</button></div>
-<div class="row"><input id="ra" type="number" placeholder="Rent 5500" oninput="calcR()"><input id="rg" type="number" placeholder="Garbage 200" oninput="calcR()"></div>
-<div class="row"><input id="rw" type="number" placeholder="Waterbill (auto)" style="background:#eef6ff;border:2px solid #60a5fa" oninput="calcR()"><input id="rp" type="number" placeholder="Paid KSH" oninput="calcR()"></div>
-<textarea id="rn" placeholder="Notes - Mpesa Code e.g. SH12ABC123"></textarea>
-<div class="stat-grid"><div class="stat"><span>TOTAL DUE</span><b id="rtd">KSH 0</b></div><div class="stat"><span>PAID</span><b id="rpp">KSH 0</b></div><div class="stat"><span>BALANCE</span><b id="rb">KSH 0</b></div></div>
-<p id="msg" style="font-size:12px;font-weight:700"></p>
-<button class="btn btn-blue" onclick="saveR()">Save Rent</button>
+<div id="budget"><div class="card"><h3>Monthly Income - <span id="curMonthLabel"></span></h3><div class="row"><input id="income" type="number" placeholder="Total Income"><input id="monthPick" type="month"></div><button class="btn btn-blue" onclick="saveIncome()">Save Income</button></div><div class="card"><h3>Real Budget</h3><table id="budgetTable"></table><div class="row" style="margin-top:10px"><input id="bItem" placeholder="Item"><input id="bEst" type="number" placeholder="Estimate"><button class="btn btn-blue btn-small" onclick="addBudgetItem()">Add</button></div></div><div class="card" style="background:#E2EFDA;text-align:center;font-weight:800"><div id="budgetBalance"></div></div></div>
+<div id="expenses" class="hidden"><div class="card"><h3>Add Expense</h3><input type="hidden" id="editIndex"><input id="eDate" type="date"><input id="eAmount" type="number" placeholder="Amount"><select id="eCat"><option>Rent</option><option>Food</option><option>Transport</option><option>KPLC/Water/Net</option><option>Airtime</option><option>Savings</option><option>Other</option></select><input id="eDesc" placeholder="Description"><div class="row"><button class="btn btn-blue" onclick="saveExpense()">Save</button><button class="btn" style="background:#eee" onclick="clearExpenseForm()">Cancel</button></div></div><div class="card"><div class="row"><input id="filterMonth" type="month" onchange="renderExpenses()"><input id="searchDesc" placeholder="Search..." oninput="renderExpenses()"></div><table id="expTable"></table><button class="btn btn-green" onclick="exportCSV('expTable','expenses')">Export CSV</button></div></div>
+<div id="ktda" class="hidden"><div class="card"><h3>KTDA - Report</h3><div class="subtabs"><button class="active" id="ktdaTabEntry" onclick="showKtdaSub('entry')">Entry</button><button id="ktdaTabReport" onclick="showKtdaSub('report')">Report</button></div><div id="ktdaEntry"><div class="row"><input id="ktdaMonth" type="month"></div><div class="row"><input id="ktdaReceived" type="number" placeholder="Amount Received"><input id="ktdaPaid" type="number" placeholder="Amount Paid Out"></div><button class="btn btn-blue" onclick="saveKtda()">Save KTDA</button></div><div id="ktdaReport" class="hidden"><select id="ktdaFilterMonth" onchange="renderKtda()"><option value="all">All Months</option></select><table><thead><tr><th>Month</th><th>Rec</th><th>Paid</th><th>Save</th><th></th></tr></thead><tbody id="ktdaTable"></tbody></table></div></div></div>
+<div id="rent" class="hidden"><div class="card"><h3>Rent Management</h3><div class="subtabs"><button class="active" id="rentTabEntry" onclick="showRentSub('entry')">Entry</button><button id="rentTabReport" onclick="showRentSub('report')">Report</button></div><div id="rentEntry"><div class="row"><input id="rentMonth" type="month"></div><div class="row"><input id="rentAmount" type="number" placeholder="Rent KSH"><input id="rentGarbage" type="number" placeholder="Garbage KSH"></div><div class="row"><input id="rentWaterbill" type="number" placeholder="Waterbill"><input id="rentPaid" type="number" placeholder="Paid KSH"></div><textarea id="rentNotes" placeholder="Notes"></textarea><button class="btn btn-blue" onclick="saveRent()">Save Rent Record</button></div><div id="rentReport" class="hidden"><select id="rentFilterMonth" onchange="renderRent()"><option value="all">All Months</option></select><table><thead><tr><th>Month</th><th>Rent</th><th>Water</th><th>Garb</th><th>Paid</th><th>Bal</th><th>Notes</th><th>Status</th><th></th></tr></thead><tbody id="rentTable"></tbody></table></div></div></div>
+<div id="waterbill" class="hidden"><div class="card"><h3>Waterbill</h3><div class="subtabs"><button class="active" id="wbTabEntry" onclick="showWbSub('entry')">Entry</button><button id="wbTabReport" onclick="showWbSub('report')">Report</button></div><div id="wbEntry"><div class="row"><input id="wbMonth" type="month"></div><div class="row"><input id="wbPrev" type="number" step="0.01" placeholder="Prev"><input id="wbCurr" type="number" step="0.01" placeholder="Curr"></div><div class="row"><input id="wbCost" type="number" value="300"></div><button class="btn btn-blue" onclick="saveWb()">Save Waterbill</button></div><div id="wbReport" class="hidden"><select id="wbFilterMonth" onchange="renderWb()"><option value="all">All Months</option></select><table><thead><tr><th>Month</th><th>Prev</th><th>Curr</th><th>Units</th><th>Cost</th><th>Total</th><th></th></tr></thead><tbody id="wbTable"></tbody></table></div></div></div>
+<div id="docs" class="hidden"><div class="card"><h3>Documents - PDF, Excel, CSV, Word, Image</h3>
+<input type="hidden" id="dEditId">
+<input id="dName" placeholder="Document name">
+<input type="file" id="dFile" accept=".pdf,.xls,.xlsx,.csv,.doc,.docx,.jpg,.jpeg,.png">
+<small id="dFileInfo" style="color:#64748b;display:block;margin:5px 0">Supports: PDF, Excel, CSV, Word, Images</small>
+<div class="row">
+<button class="btn btn-blue" onclick="saveDocFile()">Save Document</button>
+<button class="btn" style="background:#eee;color:#333" onclick="clearDocForm()">Cancel</button>
 </div>
-<div id="rr" class="hidden">
-<p style="font-size:11px;color:#64748b">Bonyeza 👁️ kwa kila mwezi kuona Statement yake</p>
-<table><thead><tr><th>Month</th><th>Rent</th><th>Water</th><th>Garb</th><th>Paid</th><th>Bal</th><th>Notes</th><th></th></tr></thead><tbody id="rt"></tbody></table>
 </div>
+<div class="card" style="overflow-x:auto">
+<table><thead><tr><th>Name</th><th>File</th><th>Size</th><th>Action</th></tr></thead><tbody id="docTable"></tbody></table>
 </div></div>
-<div id="waterbill" class="hidden"><div class="card"><h3>Waterbill - Fixed 2 decimal</h3><div class="row"><input id="wm" type="month"></div><div class="row"><input id="wp" type="number" step="0.01" placeholder="Prev e.g. 13.9" oninput="calcW()"><input id="wc" type="number" step="0.01" placeholder="Curr e.g. 15.1" oninput="calcW()"></div><div class="row"><input id="wcost" type="number" value="300" oninput="calcW()"></div>
-<div class="stat-grid"><div class="stat"><span>UNITS</span><b id="wu">0.00</b></div><div class="stat"><span>TOTAL</span><b id="wt">KSH 0</b></div><div class="stat"><span></span><b id="wcp" style="font-size:10px">Cost</b></div></div>
-<button class="btn btn-blue" onclick="saveW()">Save Waterbill</button>
-</div><div class="card"><table><tbody id="wtable"></tbody></table></div></div>
-<div id="budget" class="hidden"><div class="card"><h3>Budget</h3><table id="budgetTable"></table></div></div>
-<div id="expenses" class="hidden"><div class="card"><table id="expTable"></table></div></div>
-<div id="ktda" class="hidden"><div class="card"><table><tbody id="kt"></tbody></table></div></div>
-<div id="docs" class="hidden"><div class="card"><table id="doct"></table></div></div>
 </div>
-<div id="statementModal" onclick="if(event.target===this)closeStatement()">
-<div class="statement-paper">
-<div class="st-head">
-<h2 style="margin:0;color:#1F4E79">RENT PAYMENT STATEMENT</h2>
-<p style="margin:5px 0;font-size:12px;color:#64748b">CHARLES KORIR - Tenant Statement</p>
-<p style="margin:0;font-size:11px" id="stDate"></p>
-</div>
-<div class="st-row"><span>Statement Month:</span><b id="stMonth"></b></div>
-<div class="st-row"><span>Monthly Rent:</span><span id="stRent"></span></div>
-<div class="st-row"><span>Waterbill (<span id="stUnits"></span> units):</span><span id="stWater"></span></div>
-<div class="st-row"><span>Garbage Fee:</span><span id="stGarb"></span></div>
-<div class="st-total"><span>TOTAL DUE:</span><span id="stTotal"></span></div>
-<div class="st-row"><span>Amount Paid:</span><b id="stPaid" style="color:#16a34a"></b></div>
-<div class="st-row"><span>Balance:</span><b id="stBal"></b></div>
-<div class="st-row"><span>Status:</span><span id="stStatus"></span></div>
-<div style="margin-top:15px;padding:10px;background:#f8fafc;border-radius:8px">
-<p style="margin:0 0 5px;font-size:11px;font-weight:800;color:#1F4E79">PAYMENT CONFIRMATION / NOTES:</p>
-<p id="stNotes" style="margin:0;font-size:12px;word-break:break-all"></p>
-</div>
-<div style="margin-top:20px;text-align:center">
-<button class="btn btn-blue btn-small" onclick="window.print()">🖨️ Print / Save PDF</button>
-<button class="btn btn-small" style="background:#eee" onclick="closeStatement()">Close</button>
-</div>
-</div>
-</div>
-<script>
-let rentRecs=JSON.parse(localStorage.getItem('ck_rent')||'[]');let wbRecs=JSON.parse(localStorage.getItem('ck_wb')||'[]');
-let curMonth=new Date().toISOString().slice(0,7);document.getElementById('rm').value=curMonth;document.getElementById('wm').value=curMonth;
-function showTab(id,btn){document.querySelectorAll('.container>div').forEach(d=>d.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');if(id==='rent')renderR();}
-function showR(t){document.getElementById('re').classList.toggle('hidden',t!=='entry');document.getElementById('rr').classList.toggle('hidden',t!=='report');if(t==='entry')pull();if(t==='report')renderR();}
-function calcW(){let prev=parseFloat(document.getElementById('wp').value)||0;let curr=parseFloat(document.getElementById('wc').value)||0;let cost=parseFloat(document.getElementById('wcost').value)||0;let raw=curr-prev;if(raw<0)raw=0;let units=parseFloat(raw.toFixed(2));let total=Math.round(units*cost);document.getElementById('wu').innerText=units.toFixed(2);document.getElementById('wt').innerText='KSH '+total;document.getElementById('wcp').innerText='KSH '+cost;return{units,total};}
-function saveW(){let m=document.getElementById('wm').value;let{units,total}=calcW();let prev=parseFloat(document.getElementById('wp').value)||0;let curr=parseFloat(document.getElementById('wc').value)||0;let cost=parseFloat(document.getElementById('wcost').value)||0;let idx=wbRecs.findIndex(x=>x.month===m);if(idx>=0)wbRecs[idx]={month:m,prev,curr,units,cost,total};else wbRecs.push({month:m,prev,curr,units,cost,total});localStorage.setItem('ck_wb',JSON.stringify(wbRecs));renderW();alert('Saved: '+units.toFixed(2)+' = KSH '+total);}
-function renderW(){let tbody=document.getElementById('wtable');tbody.innerHTML='';wbRecs.slice().reverse().forEach(r=>{tbody.innerHTML+=`<tr><td>${r.month}</td><td>${r.prev}</td><td>${r.curr}</td><td>${r.units.toFixed(2)}</td><td>KSH ${r.total}</td></tr>`});}
-function calcR(){let rent=parseFloat(document.getElementById('ra').value)||0;let garb=parseFloat(document.getElementById('rg').value)||0;let water=parseFloat(document.getElementById('rw').value)||0;let paid=parseFloat(document.getElementById('rp').value)||0;let totalDue=Math.round(rent+garb+water);let bal=Math.round(totalDue-paid);document.getElementById('rtd').innerText='KSH '+totalDue.toLocaleString();document.getElementById('rpp').innerText='KSH '+paid.toLocaleString();document.getElementById('rb').innerText='KSH '+bal.toLocaleString();return{totalDue,bal};}
-function pull(){wbRecs=JSON.parse(localStorage.getItem('ck_wb')||'[]');let m=document.getElementById('rm').value;let wb=wbRecs.find(x=>x.month===m);if(wb){document.getElementById('rw').value=wb.total;document.getElementById('msg').innerText='✔ Waterbill '+m+' = KSH '+wb.total+' ('+wb.units.toFixed(2)+' units)';calcR();}}
-function saveR(){let m=document.getElementById('rm').value;let rent=parseFloat(document.getElementById('ra').value)||0;let garb=parseFloat(document.getElementById('rg').value)||0;let water=parseFloat(document.getElementById('rw').value)||0;let paid=parseFloat(document.getElementById('rp').value)||0;let notes=document.getElementById('rn').value||'';let{totalDue,bal}=calcR();let status=bal<=0?'paid':'unpaid';let idx=rentRecs.findIndex(x=>x.month===m);let rec={month:m,rent:Math.round(rent),garbage:Math.round(garb),waterbill:Math.round(water),paid:Math.round(paid),balance:bal,totalDue,notes,status};if(idx>=0)rentRecs[idx]=rec;else rentRecs.push(rec);localStorage.setItem('ck_rent',JSON.stringify(rentRecs));renderR();showR('report');}
-function renderR(){let tbody=document.getElementById('rt');tbody.innerHTML='';rentRecs.slice().sort((a,b)=>b.month.localeCompare(a.month)).forEach(r=>{tbody.innerHTML+=`<tr><td>${r.month}</td><td>${r.rent}</td><td>${r.waterbill}</td><td>${r.garbage}</td><td>${r.paid}</td><td>${r.balance}</td><td>${r.notes||'-'}</td><td><button style="background:#1F4E79;color:#fff;border:none;border-radius:6px;padding:5px 8px" onclick="viewStatement('${r.month}')">👁️ View</button></td></tr>`});}
-function viewStatement(month){let r=rentRecs.find(x=>x.month===month);let wb=wbRecs.find(x=>x.month===month);let units=wb?wb.units.toFixed(2):'0.00';document.getElementById('stDate').innerText='Generated: '+new Date().toLocaleString();document.getElementById('stMonth').innerText=r.month;document.getElementById('stRent').innerText='KSH '+r.rent.toLocaleString();document.getElementById('stWater').innerText='KSH '+r.waterbill.toLocaleString();document.getElementById('stUnits').innerText=units;document.getElementById('stGarb').innerText='KSH '+r.garbage.toLocaleString();document.getElementById('stTotal').innerText='KSH '+r.totalDue.toLocaleString();document.getElementById('stPaid').innerText='KSH '+r.paid.toLocaleString();document.getElementById('stBal').innerText='KSH '+r.balance.toLocaleString();document.getElementById('stNotes').innerText=r.notes||'No code';document.getElementById('stStatus').innerHTML=r.status==='paid'?'<span class="st-badge paid-badge">✔ Paid</span>':'<span class="st-badge unpaid-badge">✖ Unpaid</span>';document.getElementById('statementModal').style.display='block';}
-function closeStatement(){document.getElementById('statementModal').style.display='none';}
-renderR();renderW();
+  <script>
+let budgets=JSON.parse(localStorage.getItem('ck_budget')||'[]');
+let expenses=JSON.parse(localStorage.getItem('ck_exp')||'[]');let docs=JSON.parse(localStorage.getItem('ck_docs')||'[]');let ktdaRecs=JSON.parse(localStorage.getItem('ck_ktda')||'[]');let rentRecs=JSON.parse(localStorage.getItem('ck_rent')||'[]');let wbRecs=JSON.parse(localStorage.getItem('ck_wb')||'[]');let income=+localStorage.getItem('ck_income')||0;let curMonth=localStorage.getItem('ck_curMonth')||new Date().toISOString().slice(0,7);
+document.getElementById('income').value=income;document.getElementById('monthPick').value=curMonth;document.getElementById('filterMonth').value=curMonth;document.getElementById('eDate').valueAsDate=new Date();document.getElementById('curMonthLabel').innerText=curMonth;document.getElementById('ktdaMonth').value=curMonth;document.getElementById('rentMonth').value=curMonth;document.getElementById('wbMonth').value=curMonth;
+function showTab(id,btn){document.querySelectorAll('.container>div').forEach(d=>d.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');if(id==='budget')renderBudget();if(id==='expenses')renderExpenses();if(id==='docs')renderDocs();if(id==='ktda')renderKtda();if(id==='rent')renderRent();if(id==='waterbill')renderWb();}
+function showKtdaSub(w){document.getElementById('ktdaEntry').classList.toggle('hidden',w!=='entry');document.getElementById('ktdaReport').classList.toggle('hidden',w!=='report');}
+function showRentSub(w){document.getElementById('rentEntry').classList.toggle('hidden',w!=='entry');document.getElementById('rentReport').classList.toggle('hidden',w!=='report');}
+function showWbSub(w){document.getElementById('wbEntry').classList.toggle('hidden',w!=='entry');document.getElementById('wbReport').classList.toggle('hidden',w!=='report');}
+function saveIncome(){income=+document.getElementById('income').value||0;curMonth=document.getElementById('monthPick').value||curMonth;localStorage.setItem('ck_income',income);localStorage.setItem('ck_curMonth',curMonth);renderBudget();}
+function addBudgetItem(){let item=document.getElementById('bItem').value;let est=+document.getElementById('bEst').value||0;if(!item)return;budgets.push({item,est});localStorage.setItem('ck_budget',JSON.stringify(budgets));renderBudget();}
+function renderBudget(){let html='<tr><th>Item</th><th>Est</th></tr>';budgets.forEach(b=>{html+=`<tr><td>${b.item}</td><td>${b.est}</td></tr>`});document.getElementById('budgetTable').innerHTML=html;document.getElementById('budgetBalance').innerText='Balance: '+income;}
+function saveExpense(){let obj={date:document.getElementById('eDate').value,amount:document.getElementById('eAmount').value,cat:document.getElementById('eCat').value};expenses.push(obj);localStorage.setItem('ck_exp',JSON.stringify(expenses));renderExpenses();}
+function renderExpenses(){let html='<tr><th>Date</th><th>Amount</th></tr>';expenses.forEach(e=>{html+=`<tr><td>${e.date}</td><td>${e.amount}</td></tr>`});document.getElementById('expTable').innerHTML=html;}
+function clearExpenseForm(){}
+function updateKtdaPreview(){}
+function saveKtda(){let month=document.getElementById('ktdaMonth').value;let rec=+document.getElementById('ktdaReceived').value||0;let paid=+document.getElementById('ktdaPaid').value||0;let bal=rec-paid;let idx=ktdaRecs.findIndex(x=>x.month===month);if(idx>=0)ktdaRecs[idx]={month,received:rec,paidOut:paid,balance:bal};else ktdaRecs.push({month,received:rec,paidOut:paid,balance:bal});localStorage.setItem('ck_ktda',JSON.stringify(ktdaRecs));renderKtda();}
+function renderKtda(){let tbody=document.getElementById('ktdaTable');tbody.innerHTML='';ktdaRecs.forEach(r=>{tbody.innerHTML+=`<tr><td>${r.month}</td><td>${r.received}</td><td>${r.paidOut}</td><td>${r.balance}</td><td></td></tr>`});}
+function deleteKtda(m){ktdaRecs=ktdaRecs.filter(x=>x.month!==m);localStorage.setItem('ck_ktda',JSON.stringify(ktdaRecs));renderKtda();}
+function calcWb(){return {units:0,total:0};}
+function saveWb(){let month=document.getElementById('wbMonth').value;wbRecs.push({month,total:100});localStorage.setItem('ck_wb',JSON.stringify(wbRecs));}
+function renderWb(){}
+function deleteWb(m){wbRecs=wbRecs.filter(x=>x.month!==m);localStorage.setItem('ck_wb',JSON.stringify(wbRecs));}
+function calcRent(){return {totalDue:0,bal:0};}
+function autoPullWaterbill(){}
+function saveRent(){let month=document.getElementById('rentMonth').value;let rent=+document.getElementById('rentAmount').value||0;let garbage=+document.getElementById('rentGarbage').value||0;let waterbill=+document.getElementById('rentWaterbill').value||0;let paid=+document.getElementById('rentPaid').value||0;let notes=document.getElementById('rentNotes').value||'';let totalDue=rent+garbage+waterbill;let bal=totalDue-paid;let status=bal<=0?'paid':'unpaid';let rec={month,rent,garbage,waterbill,paid,balance:bal,totalDue,notes,status};let idx=rentRecs.findIndex(x=>x.month===month);if(idx>=0)rentRecs[idx]=rec;else rentRecs.push(rec);localStorage.setItem('ck_rent',JSON.stringify(rentRecs));renderRent();}
+function renderRent(){let tbody=document.getElementById('rentTable');tbody.innerHTML='';rentRecs.forEach(r=>{tbody.innerHTML+=`<tr><td>${r.month}</td><td>${r.rent}</td><td>${r.waterbill}</td><td>${r.garbage}</td><td>${r.paid}</td><td>${r.balance}</td><td>${r.notes||''}</td><td>${r.status}</td><td></td></tr>`});}
+function deleteRent(m){rentRecs=rentRecs.filter(x=>x.month!==m);localStorage.setItem('ck_rent',JSON.stringify(rentRecs));renderRent();}
+function clearDocForm(){document.getElementById('dEditId').value='';document.getElementById('dName').value='';document.getElementById('dFile').value='';document.getElementById('dFileInfo').innerText='Supports: PDF, Excel, CSV, Word, Images';}
+function saveDocFile(){
+ let editId=document.getElementById('dEditId').value;
+ let name=document.getElementById('dName').value.trim();
+ let fileInput=document.getElementById('dFile');
+ if(!name) return alert('Enter document name');
+ let file=fileInput.files[0];
+ if(file){
+   if(file.size>8*1024*1024){return alert('File too big! Max 8MB');}
+   let reader=new FileReader();
+   reader.onload=function(e){
+     let dataUrl=e.target.result;
+     if(editId){
+       let idx=docs.findIndex(d=>String(d.id)===String(editId));
+       if(idx>=0){ docs[idx].name=name; docs[idx].fileName=file.name; docs[idx].data=dataUrl; docs[idx].size=file.size; }
+     } else {
+       docs.push({id:Date.now(), name:name, fileName:file.name, data:dataUrl, size:file.size});
+     }
+     localStorage.setItem('ck_docs',JSON.stringify(docs));
+     clearDocForm(); renderDocs();
+   };
+   reader.readAsDataURL(file);
+ } else {
+   if(editId){
+     let idx=docs.findIndex(d=>String(d.id)===String(editId));
+     if(idx>=0){ docs[idx].name=name; localStorage.setItem('ck_docs',JSON.stringify(docs)); clearDocForm(); renderDocs(); }
+   } else {
+     return alert('Choose file');
+   }
+ }
+}
+function renderDocs(){
+ let tbody=document.getElementById('docTable');
+ if(!tbody) return;
+ tbody.innerHTML='';
+ docs.forEach((d,i)=>{
+   let sizeKB=d.size? (d.size/1024).toFixed(1)+' KB':'';
+   tbody.innerHTML+=`<tr>
+     <td>${d.name}</td>
+     <td>${(d.fileName||'-').substring(0,20)}</td>
+     <td>${sizeKB}</td>
+     <td><div class="doc-actions">
+       <button class="btn-small btn-blue" onclick="downloadDocByIndex(${i})">⬇️ Download</button>
+       <button class="btn-small" style="background:#e0f2fe" onclick="editDocByIndex(${i})">✏️ Edit</button>
+       <button class="btn-small" style="background:#fee2e2" onclick="deleteDocByIndex(${i})">🗑️</button>
+     </div></td>
+   </tr>`;
+ });
+}
+function editDocByIndex(idx){
+  let d=docs[idx]; if(!d) return;
+  document.getElementById('dEditId').value=d.id;
+  document.getElementById('dName').value=d.name;
+  document.getElementById('dFileInfo').innerText='Current: '+d.fileName+' - choose new file to replace';
+  document.getElementById('docs').scrollIntoView({behavior:'smooth'});
+}
+function deleteDocByIndex(idx){
+  if(!confirm('Delete '+docs[idx].name+'?')) return;
+  docs.splice(idx,1);
+  localStorage.setItem('ck_docs',JSON.stringify(docs));
+  renderDocs();
+}
+function downloadDocByIndex(idx){
+  let d=docs[idx]; if(!d||!d.data){alert('No file'); return;}
+  try{
+    let arr = d.data.split(','), mime = arr[0].match(/:(.*?);/)[1], bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+    while(n--){ u8arr[n]=bstr.charCodeAt(n); }
+    let blob = new Blob([u8arr], {type:mime});
+    let url = URL.createObjectURL(blob);
+    let a=document.createElement('a'); a.href=url; a.download=d.fileName||d.name; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(()=>URL.revokeObjectURL(url), 1000);
+  } catch(e){
+    let a=document.createElement('a'); a.href=d.data; a.download=d.fileName||d.name; a.click();
+  }
+}
+function exportCSV(id,fn){alert('Export');}
+renderBudget();renderExpenses();renderDocs();renderKtda();renderRent();
+let df=document.getElementById('dFile'); if(df){df.addEventListener('change',function(){let f=this.files[0];if(f){document.getElementById('dFileInfo').innerText=f.name+' ('+(f.size/1024).toFixed(1)+' KB)'; if(!document.getElementById('dName').value) document.getElementById('dName').value=f.name.split('.')[0];}});}
 </script>
-</body>
-</html>
+</body></html>
